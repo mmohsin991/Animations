@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 PanaCloud. All rights reserved.
 //
 
+
+// http://iosdevtips.co/post/88481653818/twitter-ios-app-bird-zoom-animation
+
 import UIKit
 import CoreData
 
@@ -17,6 +20,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+
+        
+        let imageView = UIImageView(frame: self.window!.frame)
+        imageView.image = UIImage(named: "wallpaper")
+        self.window!.addSubview(imageView)
+        
+       
+        
+        
+        
+        imageView.layer.mask = CALayer()
+        
+        imageView.layer.mask?.contents = UIImage(named: "TwitterLogo")!.CGImage
+        imageView.layer.mask?.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        //imageView.layer.mask?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        imageView.layer.mask?.position = CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)
+        
+       // imageView.layer.mask? = mask
+        
+         var mask: CALayer? = imageView.layer.mask
+        
+        let keyFrameAnimation = CAKeyframeAnimation(keyPath: "bounds")
+        keyFrameAnimation.duration = 1
+        keyFrameAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut), CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)]
+        let initalBounds = NSValue(CGRect: mask!.bounds)
+        let secondBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 90, height: 90))
+        let finalBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 1500, height: 1500))
+        keyFrameAnimation.values = [initalBounds, secondBounds, finalBounds]
+        keyFrameAnimation.keyTimes = [0, 0.3, 1]
+        //self.mask!.addAnimation(keyFrameAnimation, forKey: "bounds")
+
+        imageView.layer.mask.addAnimation(keyFrameAnimation, forKey: "bounds")
+        
+        
         return true
     }
 
