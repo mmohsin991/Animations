@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0600"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "422EC64D1A91D12E00708F25"
+               BlueprintIdentifier = "42A30E921A9CB6160038F226"
                BuildableName = "Animations.app"
                BlueprintName = "Animations"
                ReferencedContainer = "container:Animations.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "422EC6651A91D12F00708F25"
+               BlueprintIdentifier = "42A30EAA1A9CB6170038F226"
                BuildableName = "AnimationsTests.xctest"
                BlueprintName = "AnimationsTests"
                ReferencedContainer = "container:Animations.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "422EC6651A91D12F00708F25"
+               BlueprintIdentifier = "42A30EAA1A9CB6170038F226"
                BuildableName = "AnimationsTests.xctest"
                BlueprintName = "AnimationsTests"
                ReferencedContainer = "container:Animations.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "422EC64D1A91D12E00708F25"
+            BlueprintIdentifier = "42A30E921A9CB6160038F226"
             BuildableName = "Animations.app"
             BlueprintName = "Animations"
             ReferencedContainer = "container:Animations.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "422EC64D1A91D12E00708F25"
+            BlueprintIdentifier = "42A30E921A9CB6160038F226"
             BuildableName = "Animations.app"
             BlueprintName = "Animations"
             ReferencedContainer = "container:Animations.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "422EC64D1A91D12E00708F25"
+            BlueprintIdentifier = "42A30E921A9CB6160038F226"
             BuildableName = "Animations.app"
             BlueprintName = "Animations"
             ReferencedContainer = "container:Animations.xcodeproj">

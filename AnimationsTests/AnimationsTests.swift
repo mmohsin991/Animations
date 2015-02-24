@@ -2,7 +2,7 @@
 //  AnimationsTests.swift
 //  AnimationsTests
 //
-//  Created by Mohsin on 16/02/2015.
+//  Created by Mohsin on 24/02/2015.
 //  Copyright (c) 2015 PanaCloud. All rights reserved.
 //
 

@@ -2,12 +2,9 @@
 //  AppDelegate.swift
 //  Animations
 //
-//  Created by Mohsin on 16/02/2015.
+//  Created by Mohsin on 24/02/2015.
 //  Copyright (c) 2015 PanaCloud. All rights reserved.
 //
-
-
-// http://iosdevtips.co/post/88481653818/twitter-ios-app-bird-zoom-animation
 
 import UIKit
 import CoreData
@@ -20,42 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
-
-        
-        let imageView = UIImageView(frame: self.window!.frame)
-        imageView.image = UIImage(named: "wallpaper")
-        self.window!.addSubview(imageView)
-        
-       
-        
-        
-        
-        imageView.layer.mask = CALayer()
-        
-        imageView.layer.mask?.contents = UIImage(named: "TwitterLogo")!.CGImage
-        imageView.layer.mask?.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
-        //imageView.layer.mask?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        imageView.layer.mask?.position = CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)
-        
-       // imageView.layer.mask? = mask
-        
-         var mask: CALayer? = imageView.layer.mask
-        
-        let keyFrameAnimation = CAKeyframeAnimation(keyPath: "bounds")
-        keyFrameAnimation.duration = 1
-        keyFrameAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut), CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)]
-        let initalBounds = NSValue(CGRect: mask!.bounds)
-        let secondBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 90, height: 90))
-        let finalBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 1500, height: 1500))
-        keyFrameAnimation.values = [initalBounds, secondBounds, finalBounds]
-        keyFrameAnimation.keyTimes = [0, 0.3, 1]
-        //self.mask!.addAnimation(keyFrameAnimation, forKey: "bounds")
-
-        imageView.layer.mask.addAnimation(keyFrameAnimation, forKey: "bounds")
-        
-        
         return true
     }
 
@@ -94,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = NSBundle.mainBundle().URLForResource("Animations", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOfURL: modelURL)!
+        return NSManagedObjectModel(contentsOfURL: modelURL)
     }()
 
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
@@ -111,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            error = NSError.errorWithDomain("YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
