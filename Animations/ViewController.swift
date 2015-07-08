@@ -32,16 +32,15 @@ class ViewController: UIViewController {
     func twitterLayer(){
         
         self.imgBackground.image = UIImage(named: "wallpaper")
-        self.imgBackground.layer.mask = CALayer()
         
-        var mask: CALayer! = self.imgBackground.layer.mask
+        var mask = CALayer()
 
-        mask.contents = UIImage(named: "TwitterLogo").CGImage
+        mask.contents = UIImage(named: "TwitterLogo")?.CGImage
         mask.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
-        mask.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        mask.position = CGPoint(x: self.imgBackground.frame.size.width/2, y: self.imgBackground.frame.size.height/2)
+       // mask.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        mask.position = self.imgBackground.center
         
-        // imageView.layer.mask? = mask
+        self.imgBackground.layer.mask = mask
         
 
         
