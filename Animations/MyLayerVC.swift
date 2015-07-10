@@ -11,11 +11,14 @@ import UIKit
 class MyLayerVC: UIViewController {
 
     @IBOutlet weak var myView: UIView!
+        
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
         
         
@@ -38,11 +41,23 @@ class MyLayerVC: UIViewController {
         let myLayer = MyLayer()
         myLayer.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         
+        
+        
+        myLayer.anchorPoint = CGPointMake(1,0.5)
+        //myLayer.position = CGPointMake( self.myView.layer.bounds.maxX, self.myView.layer.bounds.midY)
+        myLayer.transform = CATransform3DMakeRotation(CGFloat(M_PI)/4.0, 0, 1, 0)
+        
+        // apply the distance-mapping transform.
+        var transform = CATransform3DIdentity
+        transform.m34 = -1.0/1000.0
+        self.myView.layer.sublayerTransform = transform
+        
+        
+        
+        
         myLayer.setNeedsDisplay()
         self.myView.layer.addSublayer(myLayer)
         
-        
-                
         
         
     }
@@ -103,68 +118,123 @@ class MyLayer: CALayer {
             
             
             
-            // the gradient
-            
-            
-            let center = CGPoint(x: self.bounds.origin.x + self.bounds.size.width/2, y: self.bounds.origin.y + self.bounds.size.height/2)
-            
-            let g = CAGradientLayer()
-            g.contentsScale = UIScreen.mainScreen().scale
-            g.frame = self.bounds
-            g.colors = [
-                    UIColor.blackColor().CGColor as AnyObject,
-                    UIColor.redColor().CGColor as AnyObject
-            ]
-            g.locations = [0.0,1.0]
-            self.addSublayer(g)
-            // the circle
-            let circle = CAShapeLayer()
-            circle.contentsScale = UIScreen.mainScreen().scale
-            circle.lineWidth = 2.0
-            circle.fillColor = UIColor(red:0.9, green:0.95, blue:0.93, alpha:0.9).CGColor
-            circle.strokeColor = UIColor.grayColor().CGColor
-            let p = CGPathCreateMutable()
-            CGPathAddEllipseInRect(p, nil, CGRectInset(self.bounds, 3, 3))
-            circle.path = p
-            self.addSublayer(circle)
-            circle.bounds = self.bounds
-            circle.position = center
-            // the four cardinal points
-            let pts = "NESW"
-            for (ix,c) in enumerate(pts) {
-                    let t = CATextLayer()
-                    t.contentsScale = UIScreen.mainScreen().scale
-                    t.string = String(c)
-                    t.bounds = CGRectMake(0,0,40,40)
-                    t.position = center
-                    let vert = circle.bounds.midY / t.bounds.height
-                    t.anchorPoint = CGPointMake(0.5, vert)
-                    // println(t.anchorPoint)
-                    t.alignmentMode = kCAAlignmentCenter
-                    t.foregroundColor = UIColor.blackColor().CGColor
-                    t.setAffineTransform(
-                    CGAffineTransformMakeRotation(CGFloat(ix)*CGFloat(M_PI)/2.0))
-                    circle.addSublayer(t)
-            }
-            // the arrow
-            let arrow = CALayer()
-            arrow.contentsScale = UIScreen.mainScreen().scale
-            arrow.bounds = CGRectMake(0, 0, 40, 100)
-            arrow.position = center
-            arrow.anchorPoint = CGPointMake(0.5, 0.8)
-            arrow.delegate = self // we will draw the arrow in the delegate method
-            arrow.setAffineTransform(CGAffineTransformMakeRotation(CGFloat(M_PI)/5.0))
-            self.addSublayer(arrow)
-            arrow.setNeedsDisplay() // draw, please
+        // the gradient
         
         
+        let center = CGPoint(x: self.bounds.origin.x + self.bounds.size.width/2, y: self.bounds.origin.y + self.bounds.size.height/2)
         
+        let g = CAGradientLayer()
+        g.contentsScale = UIScreen.mainScreen().scale
+        g.frame = self.bounds
+        g.colors = [
+            UIColor.blackColor().CGColor as AnyObject,
+            UIColor.redColor().CGColor as AnyObject
+        ]
+        g.locations = [0.0,1.0]
+        self.addSublayer(g)
+        // the circle
+        let circle = CAShapeLayer()
+        circle.contentsScale = UIScreen.mainScreen().scale
+        circle.lineWidth = 2.0
+        circle.fillColor = UIColor(red:0.9, green:0.95, blue:0.93, alpha:0.9).CGColor
+        circle.strokeColor = UIColor.grayColor().CGColor
+        let p = CGPathCreateMutable()
+        CGPathAddEllipseInRect(p, nil, CGRectInset(self.bounds, 3, 3))
+        circle.path = p
+        circle.bounds = self.bounds
+        circle.position = center
         
+        self.addSublayer(circle)
         
+        // the four cardinal points
+        let pts = "NESW"
+        for (ix,c) in enumerate(pts) {
+            let t = CATextLayer()
+            t.contentsScale = UIScreen.mainScreen().scale
+            t.string = String(c)
+            t.bounds = CGRectMake(0,0,40,40)
+            t.position = center
+            let vert = circle.bounds.midY / t.bounds.height
+            t.anchorPoint = CGPointMake(0.5, vert)
+            // println(t.anchorPoint)
+            t.alignmentMode = kCAAlignmentCenter
+            t.foregroundColor = UIColor.blackColor().CGColor
+            t.setAffineTransform(
+                CGAffineTransformMakeRotation(CGFloat(ix)*CGFloat(M_PI)/2.0))
+            circle.addSublayer(t)
+        }
+        // the arrow
+        let arrow = MyArrow()
+        arrow.contentsScale = UIScreen.mainScreen().scale
+        arrow.backgroundColor = UIColor.blackColor().CGColor
+        arrow.bounds = CGRectMake(0, 0, 10, 80)
+        arrow.position = center
+        // anchorPoint value from 0.....1
+        arrow.anchorPoint = CGPointMake(0.5, 0.0)
+        arrow.setNeedsDisplay()
+    
+    
+    
+//        arrow.setAffineTransform(CGAffineTransformMakeRotation(CGFloat(M_PI)/5.0))
+        
+        // same as above traform : by default CGTranformation is on Z-axis
+        // M_PI == 180 Deg
+        
+        arrow.transform = CATransform3DMakeRotation(CGFloat(M_PI), 0, 0, 1)
+        self.addSublayer(arrow)
+    
+    
         
     }
     
     
 
+}
+
+
+
+class MyArrow: CALayer {
+    
+    override func drawInContext(ctx: CGContext!) {
+        
+        CGContextSetFillColorWithColor(ctx, UIColor.redColor().CGColor)
+
+        CGContextFillRect(ctx, CGRect(x: 0, y: 70, width: 10, height: 10))
+        
+    
+    }
+    
+}
+
+
+
+class MyButton: UIButton {
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.layer.cornerRadius = self.bounds.height/2
+
+        self.layer.shadowColor = UIColor.grayColor().CGColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowOpacity = 5.0
+        self.layer.shadowRadius = 5.0
+        
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesBegan(touches, withEvent: event)
+        
+        self.layer.shadowRadius = 10.0
+
+        
+    }
+    
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+        
+        self.layer.shadowRadius = 5.0
+
+    }
 }
 
