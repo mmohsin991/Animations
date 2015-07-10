@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         self.twitterLayer()
         
         
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,4 +70,8 @@ class ViewController: UIViewController {
         twitterAnimation()
     }
 }
+
+
+
+
 
