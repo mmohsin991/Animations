@@ -13,7 +13,8 @@ class MyLayerVC: UIViewController {
     @IBOutlet weak var myView: UIView!
         
 
-    
+    let myLayer = MyLayer()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,6 @@ class MyLayerVC: UIViewController {
         
         
         
-        let myLayer = MyLayer()
         myLayer.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         
         
@@ -68,21 +68,29 @@ class MyLayerVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func click(sender: UIButton) {
+        
+        CATransaction.setAnimationDuration(2.0)
+        
+        let contatnFunc = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        
+        let clunk = CAMediaTimingFunction(controlPoints: 0.9, 0.1, 0.7, 0.9)
+        CATransaction.setAnimationTimingFunction(contatnFunc)
+        
+        sender.transform = CGAffineTransformRotate(sender.transform, CGFloat(M_PI)/4.0)
+        // layer implicit animation
+        self.myLayer.arrow.transform = CATransform3DRotate(myLayer.arrow.transform, CGFloat(M_PI)/4.0, 0, 0, 1)
+     //   self.myLayer.arrow.backgroundColor = UIColor.greenColor().CGColor
     }
-    */
+
 
 }
 
 
 class MyLayer: CALayer {
     
+    let arrow = MyArrow()
+
     
     
     override func drawInContext(ctx: CGContext!) {
@@ -164,7 +172,6 @@ class MyLayer: CALayer {
             circle.addSublayer(t)
         }
         // the arrow
-        let arrow = MyArrow()
         arrow.contentsScale = UIScreen.mainScreen().scale
         arrow.backgroundColor = UIColor.blackColor().CGColor
         arrow.bounds = CGRectMake(0, 0, 10, 80)

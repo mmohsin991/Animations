@@ -26,6 +26,18 @@
                                 <state key="normal" image="serach icon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="click:" destination="UMz-2X-cHz" eventType="touchUpInside" id="6Sd-4n-QDq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-80-ehG">
+                                <rect key="frame" x="89" y="274" width="117" height="41"/>
+                                <state key="normal" title="Rotate Clock">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="click:" destination="UMz-2X-cHz" eventType="touchUpInside" id="oQ5-5n-jEg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,7 +85,81 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="455" y="329"/>
+            <point key="canvasLocation" x="455" y="324"/>
+        </scene>
+        <!--Infinite AnimationVC-->
+        <scene sceneID="Fgc-wo-Rz1">
+            <objects>
+                <viewController id="Gq3-xq-t1D" customClass="InfiniteAnimationVC" customModule="Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="So1-5Z-Ttz"/>
+                        <viewControllerLayoutGuide type="bottom" id="bmu-Cz-znV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tAo-c2-OX7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O0a-7Y-xiN" customClass="InfiniteAnimateView" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="104" y="68" width="112" height="101"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.15289247550000001" blue="0.2372275291" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GwW-zI-rbn">
+                                <rect key="frame" x="97" y="416" width="127" height="31"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="Gq3-xq-t1D" eventType="touchUpInside" id="GBb-ub-Wrd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="viewAnimated" destination="O0a-7Y-xiN" id="UiR-Xw-FJB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uAm-rv-Vmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="324"/>
+        </scene>
+        <!--View AnimationVC-->
+        <scene sceneID="Kri-0Y-05U">
+            <objects>
+                <viewController id="kVO-nJ-Rih" customClass="UIViewAnimationVC" customModule="Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K8h-vr-QR2"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Oh-Ah-1zJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OTl-TU-v7i">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXe-mC-7PD">
+                                <rect key="frame" x="63" y="353" width="195" height="47"/>
+                                <state key="normal" title="View KayFrame Animation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="kayFrameAnimation:" destination="kVO-nJ-Rih" eventType="touchUpInside" id="zQG-z9-W3s"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rbS-PV-qvs">
+                                <rect key="frame" x="63" y="48" width="54" height="53"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="v" destination="rbS-PV-qvs" id="X7H-jO-96U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GjS-tD-qe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1210" y="324"/>
         </scene>
     </scenes>
     <resources>
