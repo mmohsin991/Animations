@@ -59,16 +59,23 @@ class ViewController: UIViewController {
         let initalBounds = NSValue(CGRect: mask!.bounds)
         let secondBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 90, height: 90))
         let finalBounds = NSValue(CGRect: CGRect(x: 0, y: 0, width: 1500, height: 1500))
+        
         keyFrameAnimation.values = [initalBounds, secondBounds, finalBounds]
         keyFrameAnimation.keyTimes = [0, 0.3, 1]
+        
         //self.mask!.addAnimation(keyFrameAnimation, forKey: "bounds")
         
         self.imgBackground.layer.mask.addAnimation(keyFrameAnimation, forKey: "bounds")
+        
     }
     
     @IBAction func twitterAnimation(sender: AnyObject) {
         twitterAnimation()
     }
+    
+    
+    
+    
 }
 
 

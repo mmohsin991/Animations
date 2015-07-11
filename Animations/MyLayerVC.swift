@@ -70,17 +70,27 @@ class MyLayerVC: UIViewController {
 
     @IBAction func click(sender: UIButton) {
         
-        CATransaction.setAnimationDuration(2.0)
-        
+        // layer's implicit animation
+
+        CATransaction.setAnimationDuration(2.0) // its working
         let contatnFunc = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        
         let clunk = CAMediaTimingFunction(controlPoints: 0.9, 0.1, 0.7, 0.9)
         CATransaction.setAnimationTimingFunction(contatnFunc)
         
-        sender.transform = CGAffineTransformRotate(sender.transform, CGFloat(M_PI)/4.0)
-        // layer implicit animation
         self.myLayer.arrow.transform = CATransform3DRotate(myLayer.arrow.transform, CGFloat(M_PI)/4.0, 0, 0, 1)
      //   self.myLayer.arrow.backgroundColor = UIColor.greenColor().CGColor
+        
+        
+        // view animation
+        
+        UIView.setAnimationDuration(2.0) // its not working
+
+        // its working
+        UIView.animateWithDuration(2.0, animations: { () -> Void in
+                    sender.transform = CGAffineTransformRotate(sender.transform, CGFloat(M_PI)/4.0)
+            
+            })
+
     }
 
 
@@ -227,6 +237,7 @@ class MyButton: UIButton {
         self.layer.shadowOpacity = 5.0
         self.layer.shadowRadius = 5.0
         
+        
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -241,6 +252,8 @@ class MyButton: UIButton {
         super.touchesEnded(touches, withEvent: event)
         
         self.layer.shadowRadius = 5.0
+        
+        
 
     }
 }
