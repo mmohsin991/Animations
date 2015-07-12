@@ -17,6 +17,9 @@ class AnimationWithCGPath: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        
+        
+    
 
     }
 
@@ -26,8 +29,6 @@ class AnimationWithCGPath: UIViewController {
     }
     
     @IBAction func start(sender: AnyObject) {
-        
-        
         
         
         let h : CGFloat = 200
@@ -82,9 +83,7 @@ class AnimationWithCGPath: UIViewController {
         self.boat.layer.addAnimation(group, forKey:nil)
         CATransaction.setDisableActions(true)
         self.boat.layer.position = next
-        
-        CAShapeLayer().timeOffset
-        
+                
         
     }
 

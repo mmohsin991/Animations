@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         
         //self.mask!.addAnimation(keyFrameAnimation, forKey: "bounds")
         
-        self.imgBackground.layer.mask.addAnimation(keyFrameAnimation, forKey: "bounds")
+        self.imgBackground.layer.mask.addAnimation(keyFrameAnimation, forKey: nil)
         
     }
     

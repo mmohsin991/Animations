@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		423F71551B5125CD00667533 /* UIViewAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F71541B5125CD00667533 /* UIViewAnimationVC.swift */; };
 		424B5E601B504DF20091772D /* InfiniteAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B5E5F1B504DF20091772D /* InfiniteAnimationVC.swift */; };
+		4252800D1B52683800FAF1A3 /* EmitterLayersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4252800C1B52683800FAF1A3 /* EmitterLayersVC.swift */; };
 		426CF5621B518DE400F4347C /* AnimationWithCGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426CF5611B518DE400F4347C /* AnimationWithCGPath.swift */; };
 		426F884E1B4F9D7B00C56D12 /* MyLayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F884D1B4F9D7B00C56D12 /* MyLayerVC.swift */; };
 		42A30E991A9CB6160038F226 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A30E981A9CB6160038F226 /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		423F71541B5125CD00667533 /* UIViewAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAnimationVC.swift; sourceTree = "<group>"; };
 		424B5E5F1B504DF20091772D /* InfiniteAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteAnimationVC.swift; sourceTree = "<group>"; };
+		4252800C1B52683800FAF1A3 /* EmitterLayersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmitterLayersVC.swift; sourceTree = "<group>"; };
 		426CF5611B518DE400F4347C /* AnimationWithCGPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationWithCGPath.swift; sourceTree = "<group>"; };
 		426F884D1B4F9D7B00C56D12 /* MyLayerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLayerVC.swift; sourceTree = "<group>"; };
 		42A30E931A9CB6160038F226 /* Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				424B5E5F1B504DF20091772D /* InfiniteAnimationVC.swift */,
 				423F71541B5125CD00667533 /* UIViewAnimationVC.swift */,
 				426CF5611B518DE400F4347C /* AnimationWithCGPath.swift */,
+				4252800C1B52683800FAF1A3 /* EmitterLayersVC.swift */,
 				42A30E9F1A9CB6160038F226 /* Main.storyboard */,
 				42A30EA21A9CB6170038F226 /* Images.xcassets */,
 				42A30EA41A9CB6170038F226 /* LaunchScreen.xib */,
@@ -230,6 +233,7 @@
 				42A30E9E1A9CB6160038F226 /* ViewController.swift in Sources */,
 				42A30E9C1A9CB6160038F226 /* Animations.xcdatamodeld in Sources */,
 				423F71551B5125CD00667533 /* UIViewAnimationVC.swift in Sources */,
+				4252800D1B52683800FAF1A3 /* EmitterLayersVC.swift in Sources */,
 				424B5E601B504DF20091772D /* InfiniteAnimationVC.swift in Sources */,
 				426CF5621B518DE400F4347C /* AnimationWithCGPath.swift in Sources */,
 				426F884E1B4F9D7B00C56D12 /* MyLayerVC.swift in Sources */,
