@@ -14,7 +14,14 @@ class EmitterLayersVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
+    
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
+        
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -240,15 +240,16 @@ class MyButton: UIButton {
         
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+                super.touchesBegan(touches, withEvent: event)
         
-        self.layer.shadowRadius = 10.0
-
+                self.layer.shadowRadius = 10.0
         
     }
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesEnded(touches, withEvent: event)
         
         self.layer.shadowRadius = 5.0
