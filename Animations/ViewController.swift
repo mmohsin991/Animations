@@ -43,8 +43,6 @@ class ViewController: UIViewController {
         
         self.imgBackground.layer.mask = mask
         
-
-        
     }
     
     
